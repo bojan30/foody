@@ -10,7 +10,7 @@ const App = () => {
     <BrowserRouter>
       <div className="app">
         <Navbar />
-        <div className = "container">
+        <div className = "main">
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path="/category" component={CategoryPage} />

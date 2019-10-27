@@ -1,10 +1,17 @@
-import React from 'react'
+import React, {Fragment} from 'react'
+import Header from '../Components/Header';
+import CategoriesList from '../Components/CategoriesList';
+import About from '../Components/About';
+import Contact from '../Components/Contact';
 
  const HomePage = () => {
     return (
-        <div>
-            HomePage
-        </div>
+        <Fragment>
+            <Header />
+            <CategoriesList />
+            <About />
+            <Contact />
+        </Fragment>
     )
 }
 
