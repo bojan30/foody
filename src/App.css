@@ -1,0 +1,120 @@
+/*font*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+/*reset styles*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+input, button{
+    outline: none;
+    border: none;
+}
+ul{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: #333;
+}
+
+/*global styles*/
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    /*compensate for the width of a fixed navbar*/
+    padding-top: 3.5rem;
+}
+.container{
+    width: 90%;
+    overflow: hidden;
+    margin: auto;
+}
+.btn{
+    display: inline-block;
+    background-color: #F9982D;
+    color: #fff;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.4rem;
+    margin-top: 1.2rem;
+    cursor: pointer;
+}
+/*nav styles*/
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.5rem;
+    padding: 0 5%;
+    box-shadow: 0px 0px 3px 1px  rgba(0,0,0,0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+}
+.menu{
+    display: flex;
+}
+.menu a{
+    padding: 0.6rem 0.8rem;
+}
+.search-bar .input-wrapper{
+    position: relative;
+    display: flex;
+    padding: 0.2rem;
+}
+.search-bar input{
+    box-shadow: 0px 0px 1px 0px #333;
+    padding: 0.4rem 1.4rem 0.4rem 0.4rem;
+    width: 100%;
+    border-radius: 0.4rem;
+}
+.search-btn{
+    position: absolute;
+    top: 50%;
+    right: 0.6rem;
+    background-color: transparent;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #333;
+}
+
+/*foooter styles*/
+.footer{
+    padding: 1rem 0;
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.6);
+}
+.footer-main{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.6rem;
+}
+.logo a{
+    display: inline-block;
+}
+.logo a img{
+    height: 30px;
+}
+.social-icons{
+    display: flex;
+}
+.social-icons a {
+    padding: 0.4rem;
+}
+.social-icons img{
+    height: 20px;
+}
+.footer-copyright{
+    text-align: center;
+}
+.footer-copyright p {
+    font-size: 0.8rem;
+}
