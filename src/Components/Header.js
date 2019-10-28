@@ -1,6 +1,6 @@
 import React from 'react';
 import headerImage from '../assets/images/header-image.png';
-
+import Scrollchor from 'react-scrollchor';
 const Header = () => {
 
     return (
@@ -12,7 +12,7 @@ const Header = () => {
                     </h2>
                     <p className="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur eaque impedit
                     aspernatur? Repudiandae voluptas, accusamus expedita perferendis impedit minima deleniti.</p>
-                    <a className="btn">Categories <i className="fas fa-angle-down"></i></a>
+                    <Scrollchor to="#categories" className="btn">Categories <i className="fas fa-angle-down"></i></Scrollchor>
                 </div>
                 <div className="header-image">
                     <img src={headerImage} alt="header" />

@@ -8,7 +8,7 @@ const CategoriesList = ({fetchCategories, categories}) => {
         fetchCategories();
     },[fetchCategories]);
     return (
-        <section className="section categories">
+        <section id = "categories" className="section categories">
             <div className="container">
                 <h3 className="section-title">
                     Categories

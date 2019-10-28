@@ -3,6 +3,8 @@ import LoginModal from './LoginModal';
 import LoginOverlay from './LoginOverlay';
 import {connect} from 'react-redux';
 import {loginModalActive} from '../actions/index'
+import Scrollchor from 'react-scrollchor';
+import {NavLink} from 'react-router-dom';
 const Navbar = ({loginModalActive, isLoginModalActive}) => {
     return (
         <nav className="nav">
@@ -21,10 +23,16 @@ const Navbar = ({loginModalActive, isLoginModalActive}) => {
                     {isLoginModalActive && <LoginModal />}
                 </li>
                 <li>
-                    <a href="#">About Us</a>
+                    <NavLink to = "/">Home</NavLink>
                 </li>
                 <li>
-                    <a href="#">Contact</a>
+                    <NavLink to="/my-meals">My Meals</NavLink>
+                </li>
+                <li>
+                    <Scrollchor to="#about">About Us</Scrollchor>
+                </li>
+                <li>
+                    <Scrollchor to="#contact">Contact</Scrollchor>
                 </li>
             </ul>
         </nav>
