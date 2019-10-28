@@ -1,8 +1,12 @@
 import React from 'react';
-
-const Navbar = () => {
+import LoginModal from './LoginModal';
+import LoginOverlay from './LoginOverlay';
+import {connect} from 'react-redux';
+import {loginModalActive} from '../actions/index'
+const Navbar = ({loginModalActive, isLoginModalActive}) => {
     return (
         <nav className="nav">
+            {isLoginModalActive && <LoginOverlay/>}
             <div className="search-bar">
                 <div className="input-wrapper">
                     <input type="text" placeholder="Search recipes" />
@@ -10,8 +14,11 @@ const Navbar = () => {
                 </div>
             </div>
             <ul className="menu">
-                <li>
-                    <a href="#"><i className="fas fa-user-circle"></i></a>
+                <li className = "login-item">
+                    <button className = "login-icon" onClick = {() => loginModalActive(true)}>
+                        <i className="fas fa-user-circle"></i>
+                    </button>
+                    {isLoginModalActive && <LoginModal />}
                 </li>
                 <li>
                     <a href="#">About Us</a>
@@ -23,5 +30,12 @@ const Navbar = () => {
         </nav>
     );
 }
-
-export default Navbar;
+const mapStateToProps = (state) => {
+    return {
+        isLoginModalActive: state.isLoginModalActive
+    }
+}
+const mapDispatchToProps = {
+    loginModalActive
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

@@ -1,8 +1,10 @@
 import {combineReducers} from 'redux';
-import {categoriesReducer} from './categoriesReducer'
+import {categoriesReducer} from './categoriesReducer';
+import {loginModalReducer} from './loginModalReducer';
 
 const rootReducer = combineReducers({
-    categories: categoriesReducer
+    categories: categoriesReducer,
+    isLoginModalActive: loginModalReducer
 })
 
 export default rootReducer;

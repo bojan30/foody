@@ -8,3 +8,9 @@ export const fetchCategories = () => {
         });
     }
 }
+export const loginModalActive = (payload) => {
+    return {
+        type: "LOGIN_MODAL_ACTIVE",
+        payload: payload
+    }
+}
