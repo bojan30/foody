@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {loginModalActive} from '../actions/index'
 import Scrollchor from 'react-scrollchor';
 import {NavLink} from 'react-router-dom';
-const Navbar = ({loginModalActive, isLoginModalActive}) => {
+const Navbar = ({loginModalActive, isLoginModalActive, isLoggedIn}) => {
     return (
         <nav className="nav">
             {isLoginModalActive && <LoginOverlay/>}
@@ -26,7 +26,7 @@ const Navbar = ({loginModalActive, isLoginModalActive}) => {
                     <NavLink to = "/">Home</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/my-meals">My Meals</NavLink>
+                    {isLoggedIn && <NavLink to="/my-meals">My Meals</NavLink>}
                 </li>
                 <li>
                     <Scrollchor to="#about">About Us</Scrollchor>
@@ -40,7 +40,8 @@ const Navbar = ({loginModalActive, isLoginModalActive}) => {
 }
 const mapStateToProps = (state) => {
     return {
-        isLoginModalActive: state.isLoginModalActive
+        isLoginModalActive: state.isLoginModalActive,
+        isLoggedIn: state.isLoggedIn
     }
 }
 const mapDispatchToProps = {

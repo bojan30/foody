@@ -292,3 +292,16 @@ body{
     height: 100%;
     z-index: 3;
 }
+.message{
+    color: #fff;
+    padding: 0.4rem;
+    border-radius: 0.4rem;
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+}
+.message.error{
+    background-color: rgb(241, 41, 14);
+}
+.message.success{
+    background-color: rgb(19, 184, 68);
+}

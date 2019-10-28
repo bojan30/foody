@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 export const fetchCategories = () => {
     return async dispatch => {
         const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/categories.php`);
@@ -12,5 +13,17 @@ export const loginModalActive = (payload) => {
     return {
         type: "LOGIN_MODAL_ACTIVE",
         payload: payload
+    }
+}
+
+export const login = () => {
+    return {
+        type: "LOGIN"
+    }
+}
+
+export const logout = () => {
+    return {
+        type: "LOGOUT"
     }
 }
