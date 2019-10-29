@@ -5,16 +5,13 @@ import {connect} from 'react-redux';
 import {loginModalActive} from '../actions/index'
 import Scrollchor from 'react-scrollchor';
 import {NavLink} from 'react-router-dom';
+import SearchBar from './SearchBar';
+
 const Navbar = ({loginModalActive, isLoginModalActive, isLoggedIn}) => {
     return (
         <nav className="nav">
             {isLoginModalActive && <LoginOverlay/>}
-            <div className="search-bar">
-                <div className="input-wrapper">
-                    <input type="text" placeholder="Search recipes" />
-                    <button className="search-btn" type="submit"><i className="fas fa-search"></i></button>
-                </div>
-            </div>
+            <SearchBar />
             <ul className="menu">
                 <li className = "login-item">
                     <button className = "login-icon" onClick = {() => loginModalActive(true)}>

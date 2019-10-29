@@ -4,11 +4,11 @@ import CategoriesList from '../Components/CategoriesList';
 import About from '../Components/About';
 import Contact from '../Components/Contact';
 
- const HomePage = () => {
+ const HomePage = ({history}) => {
     return (
         <Fragment>
             <Header />
-            <CategoriesList />
+            <CategoriesList history = {history} />
             <About />
             <Contact />
         </Fragment>

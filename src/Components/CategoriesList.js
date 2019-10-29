@@ -2,11 +2,16 @@ import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {fetchCategories} from '../actions/index';
 
-const CategoriesList = ({fetchCategories, categories}) => {
+const CategoriesList = ({fetchCategories, categories, history}) => {
     //fetch categories from redux state
     useEffect(()=>{
         fetchCategories();
     },[fetchCategories]);
+
+    const handleClick = (name) => {
+        //go to category page
+        history.push(`/category/${name}`);
+    }
     return (
         <section id = "categories" className="section categories">
             <div className="container">
@@ -17,7 +22,7 @@ const CategoriesList = ({fetchCategories, categories}) => {
                     {
                         categories.map(category => {
                             return (
-                                <div key={category.idCategory} className="category">
+                                <div onClick={(e, name) => handleClick(category.strCategory)} key={category.idCategory} className="category">
                                     <img src={category.strCategoryThumb} alt="" />
                                     <h4 className="category-title">{category.strCategory}</h4>
                                 </div>

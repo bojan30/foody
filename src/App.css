@@ -70,9 +70,10 @@ body{
     align-items: center;
     background-color: transparent;
     padding: 0.6rem;
-    border: 1px solid #666;
+    box-shadow: 0px 0px 2px 0px #333;
     border-radius: 50%;
     cursor: pointer;
+    color: #666;
 }
 .search-bar .input-wrapper{
     position: relative;
@@ -80,7 +81,8 @@ body{
     padding: 0.2rem;
 }
 .search-bar input{
-    box-shadow: 0px 0px 1px 0px #333;
+    box-shadow: 0px 0px 2px 0px #333;
+    /* border: 1px solid #333; */
     padding: 0.4rem 1.4rem 0.4rem 0.4rem;
     width: 100%;
     border-radius: 0.4rem;
@@ -178,7 +180,6 @@ body{
 .category{
     width: calc(25% - 1rem);
     cursor: pointer;
-    margin-top: 1rem;
     background-color: #fff;
     margin: 0.5rem;
     box-shadow: 0px 0px 2px rgba(0,0,0,0.2);
@@ -304,4 +305,56 @@ body{
 }
 .message.success{
     background-color: rgb(19, 184, 68);
+}
+
+/*category page*/
+.recomendation-title{
+    text-align: left;
+    margin-left: 0.5rem;
+    margin-bottom: 2rem;
+}
+.devider{
+    width: 100%;
+    height: 1px;
+    background-color: #999;
+    margin: 2rem 0.5rem;
+}
+/*single meal page styles*/
+.meal-details-main{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.meal-details-left{
+    flex: 1;
+    margin-right: 1rem;
+}
+.meal-details-left img{
+    width : 100%;
+}
+.meal-details-left .category-title{
+    margin-bottom: 0.5rem;
+}
+.meal-details-right{
+    text-align: left;
+    flex: 2;
+    font-size: 0.8rem;
+}
+.meal-details-right div{
+    margin-bottom: 0.5rem;
+}
+.meal-details-right span{
+    font-weight: 700;
+}
+.meal-details-ingredients{
+    margin-top: 1rem;
+    display: flex;
+    text-align: left;
+    font-size: 0.8rem;
+}
+.meal-details-ingredients h4{
+    margin-bottom: 1rem;
+}
+.ingredients{
+    margin-right: 1rem;
 }
