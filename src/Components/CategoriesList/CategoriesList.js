@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
-import {fetchCategories} from '../actions/index';
+import {fetchCategories} from '../../actions/index';
+import Card from '../Card/Card';
 
 const CategoriesList = ({fetchCategories, categories, history}) => {
     //fetch categories from redux state
@@ -8,9 +9,9 @@ const CategoriesList = ({fetchCategories, categories, history}) => {
         fetchCategories();
     },[fetchCategories]);
 
-    const handleClick = (name) => {
+    const handleClick = (id) => {
         //go to category page
-        history.push(`/category/${name}`);
+        history.push(`/category/${id}`);
     }
     return (
         <section id = "categories" className="section categories">
@@ -18,14 +19,21 @@ const CategoriesList = ({fetchCategories, categories, history}) => {
                 <h3 className="section-title">
                     Categories
                 </h3>
-                <div className="categories-wrapper">
+                <div className="card-wrapper">
                     {
                         categories.map(category => {
                             return (
-                                <div onClick={(e, name) => handleClick(category.strCategory)} key={category.idCategory} className="category">
-                                    <img src={category.strCategoryThumb} alt="" />
-                                    <h4 className="category-title">{category.strCategory}</h4>
-                                </div>
+                                <Card
+                                    key = {category.idCategory}
+                                    handleClick = {(id) => handleClick(id)}
+                                    title = {category.strCategory}
+                                    img = {category.strCategoryThumb}
+                                    id = {category.strCategory}
+                                />
+                                // <div onClick={(e, name) => handleClick(category.strCategory)} key={category.idCategory} className="card">
+                                //     <img src={category.strCategoryThumb} alt="" />
+                                //     <h4 className="category-title">{category.strCategory}</h4>
+                                // </div>
                             );
                         })
                     }

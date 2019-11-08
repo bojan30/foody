@@ -5,6 +5,7 @@ import {loginReducer} from './loginReducer';
 import {singleCategoryReducer} from './singleCategoryReducer';
 import {singleMealReducer} from './singleMealReducer';
 import {randomMealsReducer} from './randomMealsReducer';
+import {searchResultsReducer} from './searchResultsReducer'
 
 const rootReducer = combineReducers({
     categories: categoriesReducer,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
     isLoggedIn: loginReducer,
     categoryRecipes: singleCategoryReducer,
     singleMeal: singleMealReducer,
-    randomMeals: randomMealsReducer
+    randomMeals: randomMealsReducer,
+    searchResults: searchResultsReducer
 })
 
 export default rootReducer;

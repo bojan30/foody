@@ -1,0 +1,23 @@
+.header{
+    min-height: calc(100vh - 3.5rem);
+}
+.header .container{
+    display: flex;
+    height: calc(100vh - 3.5rem);
+    justify-content: space-between;
+    align-items: center;
+}
+.header-content{
+    flex: 1;
+    padding-right: 2rem;
+}
+.header-image{
+    flex: 2;
+}
+.header-image img{
+    width: 100%;
+    display: block;
+}
+.title{
+    margin-bottom: 1.2rem;
+}

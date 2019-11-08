@@ -1,14 +1,20 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
-import {fetchSingleMeal} from '../actions/index'
+import {fetchSingleMeal, fetchRandomMeals} from '../actions/index';
+import Card from '../Components/Card/Card';
 
-const SingleMealPage = ({match, fetchSingleMeal, singleMeal}) => {
+const SingleMealPage = ({history, match, fetchSingleMeal, singleMeal, fetchRandomMeals, randomMeals}) => {
     const id = match.params.id;
     //fetch single meal from api
     useEffect(() => { 
         fetchSingleMeal(id);
-    }, []);
-    console.log(singleMeal);
+    }, [fetchSingleMeal, id]);
+    useEffect(() => {
+        fetchRandomMeals(3);
+    }, [fetchRandomMeals]);
+    const handleClick = (id) => {
+        history.push(`/single/${id}`);
+    }
     return (
         <div className = "section">
             <div className="container">
@@ -57,17 +63,37 @@ const SingleMealPage = ({match, fetchSingleMeal, singleMeal}) => {
                         </div>
                     </div>
                 }
+                <div className="recomendation">
+                    <h4 className="recomendation-title">Our recomendation</h4>
+                    <div className="card-wrapper">
+                        {
+                            randomMeals.map(recipe => {
+                                return (
+                                    <Card
+                                        handleClick={(id) => handleClick(id)}
+                                        id={recipe.idMeal}
+                                        img={recipe.strMealThumb}
+                                        title={recipe.strMeal}
+                                        key={recipe.idMeal}
+                                    />
+                                );
+                            })
+                        }
+                    </div>
+                </div>
             </div>
         </div>
     )
 }
 const mapStateToProps = (state) => {
     return {
-        singleMeal: state.singleMeal
+        singleMeal: state.singleMeal,
+        randomMeals: state.randomMeals
     }
 }
 const mapDispathToProps = {
-    fetchSingleMeal
+    fetchSingleMeal,
+    fetchRandomMeals
 }
 
 export default connect(mapStateToProps, mapDispathToProps)(SingleMealPage);

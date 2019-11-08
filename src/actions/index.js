@@ -40,6 +40,16 @@ export const fetchRandomMeals = (num) => {
         });
     }
 }
+export const searchResults = (name) => {
+    return async dispatch => {
+        const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`);
+        console.log(response);
+        dispatch({
+            type: "SEARCH_RESULTS",
+            payload: response.data.meals
+        });
+    }
+}
 export const loginModalActive = (payload) => {
     return {
         type: "LOGIN_MODAL_ACTIVE",

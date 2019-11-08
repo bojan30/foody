@@ -1,26 +1,32 @@
 import React, {useEffect} from 'react'
 import {connect} from 'react-redux';
 import {fetchRandomMeals} from '../actions/index';
+import Card from '../Components/Card/Card';
 
-const MyMealsPage = ({fetchRandomMeals, randomMeals}) => {
-    console.log(randomMeals);
+const MyMealsPage = ({history, fetchRandomMeals, randomMeals}) => {
     useEffect(() => {
         fetchRandomMeals(10);
-    },[]);
+    },[fetchRandomMeals]);
+    const handleClick = (id) => {
+        history.push(`/single/${id}`);
+    }
     return (
         <section className="section">
             <div className="container">
                 <h3 className="section-title">
                     My Meals
                 </h3>
-                <div className="categories-wrapper">
+                <div className="card-wrapper">
                     {
-                        randomMeals.map(meal => {
+                        randomMeals.map(recipe => {
                             return (
-                                <div key={meal.idMeal} className="category">
-                                    <img src={meal.strMealThumb} alt="" />
-                                    <h4 className="category-title">{meal.strMeal}</h4>
-                                </div>
+                                <Card
+                                    handleClick={(id) => handleClick(id)}
+                                    id = {recipe.idMeal}
+                                    img = {recipe.strMealThumb}
+                                    title = {recipe.strMeal}
+                                    key={recipe.idMeal}
+                                />
                             );
                         })
                     }

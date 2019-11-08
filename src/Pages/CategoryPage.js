@@ -1,19 +1,26 @@
 import React, {useState,useEffect} from 'react';
 import {connect} from 'react-redux';
-import SearchBar from '../Components/SearchBar';
+import Card from '../Components/Card/Card';
 import {fetchSingleCategory} from '../actions/index';
 
 const CategoryPage = ({history, match, fetchSingleCategory, categoryRecipes}) => {
     const [searchTerm, setSearchTerm] = useState("");
+    const [randomNumber, setRandomNumber] = useState(null);
 
     const categoryName = match.params.name;
     //fetch meals with category name
     useEffect(() => {
         fetchSingleCategory(categoryName);
-    }, [fetchSingleCategory]);
+    }, [fetchSingleCategory, categoryName]);
 
-    const onChangeHandler = (value) => {
-        setSearchTerm(value);
+    useEffect(() => {
+        if(categoryRecipes.length){
+            setRandomNumber(Math.floor(Math.random()*categoryRecipes.length));
+        }
+    },[categoryRecipes]);
+
+    const changeHandler = (e) => {
+        setSearchTerm(e.target.value);
     }
     const handleClick = (id) => {
         history.push(`/single/${id}`);
@@ -28,21 +35,34 @@ const CategoryPage = ({history, match, fetchSingleCategory, categoryRecipes}) =>
                 </h3>
                 <div className = "recomendation">
                     <h4 className = "recomendation-title">Our recomendation</h4>
-                    {categoryRecipes.length && <div className="category">
-                        <img src={categoryRecipes[5].strMealThumb} alt="" />
-                        <h4 className="category-title">{categoryRecipes[5].strMeal}</h4>
-                    </div>}
+                    {
+                        categoryRecipes.length && randomNumber !== null && <Card
+                            handleClick={(id) => handleClick(id)}
+                            id={categoryRecipes[randomNumber].idMeal}
+                            img={categoryRecipes[randomNumber].strMealThumb}
+                            title={categoryRecipes[randomNumber].strMeal}
+                            key={categoryRecipes[randomNumber].idMeal}
+                        />
+                    }
                 </div>
                 <div className = "devider"></div>
-                <SearchBar onChangeHandler = {onChangeHandler} />
-                <div className="categories-wrapper">
+                <div className="search-bar">
+                    <div className="input-wrapper">
+                        <input onChange={changeHandler} type="text" placeholder="Search" value = {searchTerm} />
+                        <button className="search-btn" type="submit"><i className="fas fa-search"></i></button>
+                    </div>
+                </div>
+                <div className="card-wrapper">
                     {
                         filteredRecipes.map(recipe => {
                             return (
-                                <div onClick = {(e, id) => handleClick(recipe.idMeal)} key={recipe.idMeal} className="category">
-                                    <img src={recipe.strMealThumb} alt="" />
-                                    <h4 className="category-title">{recipe.strMeal}</h4>
-                                </div>
+                                <Card
+                                    handleClick={(id) => handleClick(id)}
+                                    id={recipe.idMeal}
+                                    img={recipe.strMealThumb}
+                                    title={recipe.strMeal}
+                                    key={recipe.idMeal}
+                                />
                             );
                         })
                     }

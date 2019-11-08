@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
-import {login, loginModalActive, logout} from '../actions/index';
-import {users} from '../users';
+import {login, loginModalActive, logout} from '../../actions/index';
+import {users} from '../../users';
+import './LoginModal.css';
 
 const LoginModal = ({login, isLoggedIn, loginModalActive, logout}) => {
     const [loginData, setLoginData] = useState({email: "", password: ""});

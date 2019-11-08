@@ -1,0 +1,29 @@
+/*foooter styles*/
+.footer{
+    padding: 1rem 0;
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.6);
+}
+.footer-main{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.6rem;
+}
+.logo img{
+    height: 30px;
+}
+.social-icons{
+    display: flex;
+}
+.social-icons a {
+    padding: 0.4rem;
+}
+.social-icons img{
+    height: 20px;
+}
+.footer-copyright{
+    text-align: center;
+}
+.footer-copyright p {
+    font-size: 0.8rem;
+}

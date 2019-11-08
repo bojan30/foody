@@ -1,6 +1,7 @@
 import React from 'react';
-import headerImage from '../assets/images/header-image.png';
+import headerImage from '../../assets/images/header-image.png';
 import Scrollchor from 'react-scrollchor';
+import './Header.css';
 const Header = () => {
 
     return (
